@@ -1,0 +1,78 @@
+h1 {
+	width: 100%;
+}
+
+li:hover {
+	background-color: #DADADA;
+}
+
+.container {
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.cat-menu {
+	border-right: solid 5px;
+}
+
+.catPorfile,.adminContainer {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+
+#adminBtn {
+	width: 50%;
+}
+
+.adminSwitch {
+	width:50%;
+}
+
+.adminSettingContainer {
+	width: 50%;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.leftMenuContainer {
+	width: 20%;
+}
+
+form label {
+	width:50%;
+	text-align: left;
+}
+form input {
+	width: 50%;
+}
+
+.mainWindowContainer {
+	display: flex;
+	flex-wrap: wrap;
+	width: 80%;
+}
+
+#catHeader,#catPic,#catImage,#catClickNum {
+	width:100%;
+}
+
+.clickNumContainer,.imageContainer {
+	width:50%;
+}
+.cat-item {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	margin: 10px;
+}
+
+#clickNumText {
+	width:100%;
+	margin-left: 10px;
+}
