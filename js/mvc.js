@@ -28,6 +28,11 @@ var model = {
 	},
 	init: function() {
 		this.currentItemId = 0;
+	},
+	updateObj: function(idx,name,url,num) {
+		this.catsList[idx].name = name;
+		this.catsList[idx].pciture = url;
+		this.catsList[idx].clickNum = num;
 	}
 };
 
@@ -52,12 +57,17 @@ var control = {
 	},
 	getCurrentId: function() {
 		return model.getCurrentId();
+	},
+	updateSettings: function(idx,name,url,num) {
+		console.log(idx,name,url,num);
+		model.updateObj(idx,name,url,num);
 	}
 
 }
 
 var viewMain = {
 	render: function(idx) {
+		control.setCurrentId(idx);
 		var item = control.selectObj(idx);
 		control.setCurrentId(idx);
 
@@ -75,11 +85,60 @@ var viewMain = {
 		this.$catImage.html('');
 		this.$catClickNum.html('');
 	},
+	setAdminSettings: function(item) {
+		$("#inputName").val(item.name);
+		$("#inputUrl").val(item.picture);
+		$("#inputClickNum").val(item.clickNum);
+	},
+	showAdminSetting: function() {
+		this.$CatSettings.removeClass("inputCatSettins-disable");
+		this.$CatSettings.addClass("inputCatSettins-enable");
+	},
+	hideAdminSetting: function() {
+		this.$CatSettings.removeClass("inputCatSettins-enable");
+		this.$CatSettings.addClass("inputCatSettins-disable");
+	},
 	init: function() {
+		var idx = control.getCurrentId();
 		this.$catHeader = $('#catHeader');
 		this.$catImage = $('#catImage');
 		this.$catClickNum = $('#catClickNum');
-		this.render(control.getCurrentId());
+		this.$adminBtn = $('#adminBtn');
+		this.$CatSettings = $('#CatSettings');
+		this.$cancelBtn = $('#cancelBtn');
+		this.$CatSettings.submit(function(e){
+			var idx = control.getCurrentId();
+			var name = $('#inputName').val();
+			var url = $('#inputUrl').val();
+			var num = $('#inputClickNum').val();
+			control.updateSettings(idx, name, url, num);
+			viewMain.hideAdminSetting();
+			viewMain.render(idx);
+			e.preventDefault();
+		});
+		this.$cancelBtn.click(function(e){
+			var catItem = control.selectObj(control.getCurrentId());
+			viewMain.setAdminSettings(catItem);
+			viewMain.hideAdminSetting();
+			e.preventDefault();
+		});
+
+
+		this.$adminBtn.click(function(e) {
+			console.log(e.target);
+			console.log(viewMain.$CatSettings);
+			if(viewMain.$CatSettings.attr("class") === "inputCatSettins-disable")
+			{
+				viewMain.showAdminSetting();
+				var catItem = control.selectObj(idx);
+				viewMain.setAdminSettings(catItem);
+			}
+			else
+			{
+				viewMain.hideAdminSetting();
+			}
+		});
+		this.render(idx);
 	}
 }
 

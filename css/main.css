@@ -1,4 +1,4 @@
-h1 {
+h1 form .formBtn {
 	width: 100%;
 }
 
@@ -30,14 +30,23 @@ li:hover {
 	width: 50%;
 }
 
-.adminSwitch {
-	width:50%;
+.adminSettingContainer {
+	width:66.6666%;
 }
 
-.adminSettingContainer {
-	width: 50%;
-	display: flex;
+.adminSwitch {
+	width:33.3333%;
+}
+
+.inputCatSettins-disable {
+	display:none;
+	width: 100%;
+}
+
+.inputCatSettins-enable {
+	display:flex;
 	flex-wrap: wrap;
+	width: 100%;
 }
 
 .leftMenuContainer {
@@ -50,6 +59,10 @@ form label {
 }
 form input {
 	width: 50%;
+}
+
+form button {
+	width:80px;
 }
 
 .mainWindowContainer {

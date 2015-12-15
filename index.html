@@ -25,14 +25,21 @@
 				<div class="adminSwitch">
 					<button id="adminBtn">Admin Mode</button>
 				</div>
-				<form class="adminSettingContainer">
-					<label>name</label>
-					<input type="text" id="inputName">
-					<label>Image Url</label>
-					<input type="text" id="inputUrl">
-					<label>Number of Clicks</label>
-					<input type="text" id="inputClickNum">
-				</form>
+				<div class="adminSettingContainer">
+					<form class="inputCatSettins-disable" id="CatSettings">
+						<label>name</label>
+						<input type="text" id="inputName">
+						<label>Image Url</label>
+						<input type="text" id="inputUrl">
+						<label>Number of Clicks</label>
+						<input type="text" id="inputClickNum">
+						<div class="formBtn">
+							<Button type="submit" id="saveBtn" value="Submit">Submit</Button>
+							<Button type="reset" id="cancelBtn">Cancel</Button>
+						</div>
+					</form>
+
+				</div>
 			</div>
 		</div>
 	</div>
